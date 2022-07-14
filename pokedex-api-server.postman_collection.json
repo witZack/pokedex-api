@@ -1,0 +1,392 @@
+{
+	"info": {
+		"_postman_id": "1a320b98-5865-4972-8fd8-78049e1b2e00",
+		"name": "pokedex-api-server",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "185881"
+	},
+	"item": [
+		{
+			"name": "pokedex",
+			"item": [
+				{
+					"name": "GQL",
+					"item": [
+						{
+							"name": "pokemon (all)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status Code\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Json Response Array\", function() {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.response).to.be.an(\"array\");",
+											"});",
+											"pm.test(\"Json Response Object\", function() {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.response).length.to.be.gte(1);",
+											"    pm.expect(jsonData.response[0]).to.have.all.keys('pokemonID', 'name', 'photoUrl');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/pokemon?offset=0&limit=20",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pokemon"
+									],
+									"query": [
+										{
+											"key": "offset",
+											"value": "0"
+										},
+										{
+											"key": "limit",
+											"value": "20"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "pokemon (all)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:3010/pokemon?offset=20",
+											"host": [
+												"localhost"
+											],
+											"port": "3010",
+											"path": [
+												"pokemon"
+											],
+											"query": [
+												{
+													"key": "offset",
+													"value": "20"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "akka-http/10.2.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Jul 2022 01:32:55 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3030"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"response\": [\n        {\n            \"name\": \"spearow\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/21.png\",\n            \"pokemonID\": 21\n        },\n        {\n            \"name\": \"fearow\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/22.png\",\n            \"pokemonID\": 22\n        },\n        {\n            \"name\": \"ekans\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/23.png\",\n            \"pokemonID\": 23\n        },\n        {\n            \"name\": \"arbok\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/24.png\",\n            \"pokemonID\": 24\n        },\n        {\n            \"name\": \"pikachu\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/25.png\",\n            \"pokemonID\": 25\n        },\n        {\n            \"name\": \"raichu\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/26.png\",\n            \"pokemonID\": 26\n        },\n        {\n            \"name\": \"sandshrew\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/27.png\",\n            \"pokemonID\": 27\n        },\n        {\n            \"name\": \"sandslash\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/28.png\",\n            \"pokemonID\": 28\n        },\n        {\n            \"name\": \"nidoran-f\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/29.png\",\n            \"pokemonID\": 29\n        },\n        {\n            \"name\": \"nidorina\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/30.png\",\n            \"pokemonID\": 30\n        },\n        {\n            \"name\": \"nidoqueen\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/31.png\",\n            \"pokemonID\": 31\n        },\n        {\n            \"name\": \"nidoran-m\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/32.png\",\n            \"pokemonID\": 32\n        },\n        {\n            \"name\": \"nidorino\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/33.png\",\n            \"pokemonID\": 33\n        },\n        {\n            \"name\": \"nidoking\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/34.png\",\n            \"pokemonID\": 34\n        },\n        {\n            \"name\": \"clefairy\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/35.png\",\n            \"pokemonID\": 35\n        },\n        {\n            \"name\": \"clefable\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/36.png\",\n            \"pokemonID\": 36\n        },\n        {\n            \"name\": \"vulpix\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/37.png\",\n            \"pokemonID\": 37\n        },\n        {\n            \"name\": \"ninetales\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/38.png\",\n            \"pokemonID\": 38\n        },\n        {\n            \"name\": \"jigglypuff\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/39.png\",\n            \"pokemonID\": 39\n        },\n        {\n            \"name\": \"wigglytuff\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/40.png\",\n            \"pokemonID\": 40\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "pokemon search (name)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status Code\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Json Response Array\", function() {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.response).to.be.an(\"array\");",
+											"});",
+											"pm.test(\"Json Response Object\", function() {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.response).length.to.be.gte(1);",
+											"    pm.expect(jsonData.response[0]).to.have.all.keys('pokemonID', 'name', 'photoUrl');",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/pokemon/search?name=meta",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pokemon",
+										"search"
+									],
+									"query": [
+										{
+											"key": "name",
+											"value": "meta"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "pokemon search (name)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:3010/pokemon/search?name=meta",
+											"host": [
+												"localhost"
+											],
+											"port": "3010",
+											"path": [
+												"pokemon",
+												"search"
+											],
+											"query": [
+												{
+													"key": "name",
+													"value": "meta"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "akka-http/10.2.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Jul 2022 01:33:11 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "947"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"response\": [\n        {\n            \"name\": \"metapod\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/11.png\",\n            \"pokemonID\": 11\n        },\n        {\n            \"name\": \"metang\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/375.png\",\n            \"pokemonID\": 375\n        },\n        {\n            \"name\": \"metagross\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/376.png\",\n            \"pokemonID\": 376\n        },\n        {\n            \"name\": \"melmetal\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/809.png\",\n            \"pokemonID\": 809\n        },\n        {\n            \"name\": \"metagross-mega\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10076.png\",\n            \"pokemonID\": 10076\n        },\n        {\n            \"name\": \"melmetal-gmax\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10208.png\",\n            \"pokemonID\": 10208\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "pokemon search (type)",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"exec": [
+											"pm.test(\"Status Code\", function () {",
+											"    pm.response.to.have.status(200);",
+											"});",
+											"pm.test(\"Json Response Array\", function() {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.response).to.be.an(\"array\");",
+											"});",
+											"pm.test(\"Json Response Object\", function() {",
+											"    var jsonData = pm.response.json();",
+											"    pm.expect(jsonData.response).length.to.be.gte(1);",
+											"    pm.expect(jsonData.response[0]).to.have.all.keys('pokemonID', 'name', 'photoUrl');",
+											"    // Hardcoding this as the data set is hardcoded as well. Might want to return pokemon type as a field in future for better test",
+											"    pm.expect(jsonData.response[0].name).to.eq(\"wartortle\");",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"auth": {
+									"type": "noauth"
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{host}}/pokemon/search?type=water",
+									"host": [
+										"{{host}}"
+									],
+									"path": [
+										"pokemon",
+										"search"
+									],
+									"query": [
+										{
+											"key": "type",
+											"value": "water"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "pokemon search (type)",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "localhost:3010/pokemon/search?type=water",
+											"host": [
+												"localhost"
+											],
+											"port": "3010",
+											"path": [
+												"pokemon",
+												"search"
+											],
+											"query": [
+												{
+													"key": "type",
+													"value": "water"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Server",
+											"value": "akka-http/10.2.9"
+										},
+										{
+											"key": "Date",
+											"value": "Thu, 14 Jul 2022 01:33:20 GMT"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										},
+										{
+											"key": "Content-Length",
+											"value": "3117"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"response\": [\n        {\n            \"name\": \"wartortle\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/8.png\",\n            \"pokemonID\": 8\n        },\n        {\n            \"name\": \"azumarill\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/184.png\",\n            \"pokemonID\": 184\n        },\n        {\n            \"name\": \"horsea\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/116.png\",\n            \"pokemonID\": 116\n        },\n        {\n            \"name\": \"dewgong\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/87.png\",\n            \"pokemonID\": 87\n        },\n        {\n            \"name\": \"luvdisc\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/370.png\",\n            \"pokemonID\": 370\n        },\n        {\n            \"name\": \"basculin-red-striped\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/550.png\",\n            \"pokemonID\": 550\n        },\n        {\n            \"name\": \"prinplup\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/394.png\",\n            \"pokemonID\": 394\n        },\n        {\n            \"name\": \"ludicolo\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/272.png\",\n            \"pokemonID\": 272\n        },\n        {\n            \"name\": \"rotom-wash\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10009.png\",\n            \"pokemonID\": 10009\n        },\n        {\n            \"name\": \"tapu-fini\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/788.png\",\n            \"pokemonID\": 788\n        },\n        {\n            \"name\": \"inteleon-gmax\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10211.png\",\n            \"pokemonID\": 10211\n        },\n        {\n            \"name\": \"slowbro\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/80.png\",\n            \"pokemonID\": 80\n        },\n        {\n            \"name\": \"palkia-origin\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10246.png\",\n            \"pokemonID\": 10246\n        },\n        {\n            \"name\": \"milotic\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/350.png\",\n            \"pokemonID\": 350\n        },\n        {\n            \"name\": \"kyogre\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/382.png\",\n            \"pokemonID\": 382\n        },\n        {\n            \"name\": \"mudkip\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/258.png\",\n            \"pokemonID\": 258\n        },\n        {\n            \"name\": \"corphish\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/341.png\",\n            \"pokemonID\": 341\n        },\n        {\n            \"name\": \"kyogre-primal\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10077.png\",\n            \"pokemonID\": 10077\n        },\n        {\n            \"name\": \"drizzile\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/817.png\",\n            \"pokemonID\": 817\n        },\n        {\n            \"name\": \"cramorant-gorging\",\n            \"photoUrl\": \"https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/10183.png\",\n            \"pokemonID\": 10183\n        }\n    ]\n}"
+								}
+							]
+						}
+					]
+				}
+			],
+			"description": "Requests to the feeds api to retrieve potential wisps to contact"
+		},
+		{
+			"name": "ops",
+			"item": [
+				{
+					"name": "status",
+					"protocolProfileBehavior": {
+						"disabledSystemHeaders": {
+							"host": true
+						}
+					},
+					"request": {
+						"auth": {
+							"type": "noauth"
+						},
+						"method": "GET",
+						"header": [
+							{
+								"key": "Host",
+								"value": "Testing",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{host}}/ops/health_check",
+							"host": [
+								"{{host}}"
+							],
+							"path": [
+								"ops",
+								"health_check"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "pokeapi",
+			"item": [
+				{
+					"name": "Sprite/Name/Pagination",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "X-Method-Used",
+								"value": "graphiql",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "graphql",
+							"graphql": {
+								"query": "query MyQuery {\n  pokemon_v2_pokemon(offset: 10, limit: 10) {\n    name\n    id\n    pokemon_v2_pokemonsprites {\n      id\n    }\n    pokemon_v2_pokemontypes {\n      pokemon_v2_type {\n        name\n      }\n    }\n  }\n}",
+								"variables": ""
+							}
+						},
+						"url": {
+							"raw": "https://beta.pokeapi.co/graphql/v1beta",
+							"protocol": "https",
+							"host": [
+								"beta",
+								"pokeapi",
+								"co"
+							],
+							"path": [
+								"graphql",
+								"v1beta"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

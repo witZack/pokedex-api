@@ -1,0 +1,9 @@
+services:
+  app:
+    build:
+      dockerfile: ./docker/api-server/Dockerfile
+      context: .
+    container_name: app
+    ports:
+      - 3010:3010
+
